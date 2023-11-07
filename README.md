@@ -15,3 +15,17 @@
 <br/>
 
 ---
+
+<br/>
+
+> >
+>
+> > **Presentación**
+> >
+> > - El sidebar renderea los items en dos grupos links externos y links internos.
+> > - Puede organizar los modulos y secciones en base a su propiedad posicional.
+> > - También maneja la desabilitación de las opciones y ocultamiento en base a las props habilitado y protected.
+>
+> >
+
+<br/>
