@@ -9,7 +9,7 @@
 </h6>
 
 <div align="center">
-    <img alt="Microfrontend" src="https://github.com/pmNiko/Menu-Collapse/blob/main/Docs/screenshots/Menu.png?raw=true" height="550px" width="300px"/>
+    <img alt="Microfrontend" src="https://github.com/pmNiko/Menu-Collapse/blob/main/Docs/screenshots/Menu.png?raw=true"  />
 </div>
 
 <br/>
