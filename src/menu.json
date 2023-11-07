@@ -1,0 +1,188 @@
+[
+  {
+    "id": 0,
+    "ref": "mod_rentas",
+    "posicion": 0,
+    "titulo": "Rentas",
+    "ruta": "/rentas",
+    "habilitado": true,
+    "protected": false,
+    "isModule": true,
+    "expand": true,
+    "secciones": [
+      {
+        "id": 0,
+        "posicion": 0,
+        "titulo": "Pago Online",
+        "descripcion": "Pague sus tributos de manera electrónica.",
+        "iconname": "fact_check",
+        "ruta": "/pagar",
+        "habilitado": true,
+        "modulo": "mod_rentas",
+        "protected": false
+      },
+      {
+        "id": 1,
+        "posicion": 1,
+        "titulo": "Recibos",
+        "descripcion": "Adhiera a la recepción por email de sus tasas.",
+        "iconname": "attach_email",
+        "ruta": "/adhesion",
+        "habilitado": false,
+        "modulo": "mod_rentas",
+        "protected": false
+      },
+      {
+        "id": 2,
+        "posicion": 2,
+        "titulo": "Comprobantes",
+        "descripcion": "Busqueda de comprobantes de pago.",
+        "iconname": "receipt_long",
+        "ruta": "/busqueda-comprobantes-de-pago",
+        "habilitado": true,
+        "modulo": "mod_rentas",
+        "protected": false
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "ref": "mod_rrhh",
+    "posicion": 1,
+    "titulo": "RRHH",
+    "ruta": "/rrhh",
+    "habilitado": true,
+    "protected": false,
+    "isModule": true,
+    "expand": true,
+    "secciones": [
+      {
+        "id": 3,
+        "posicion": 0,
+        "titulo": "Haberes",
+        "descripcion": "Descarga recibo de haberes personal municipal.",
+        "iconname": "receipt",
+        "ruta": "/solicitudrecibohaberes",
+        "habilitado": true,
+        "modulo": "mod_rrhh",
+        "protected": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "ref": "mod_ddjj",
+    "posicion": 2,
+    "titulo": "DDJJ",
+    "ruta": "/ddjj",
+    "habilitado": false,
+    "protected": false,
+    "isModule": true,
+    "expand": true,
+    "secciones": [
+      {
+        "id": 4,
+        "posicion": 0,
+        "titulo": "DDJJ COM",
+        "descripcion": "Declaraciones Juradas anuales de comercio.",
+        "iconname": "fact_check",
+        "ruta": "/ingresar",
+        "habilitado": true,
+        "modulo": "mod_ddjj",
+        "protected": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "ref": "mod_institucional",
+    "posicion": 3,
+    "titulo": "Institucional",
+    "ruta": "/institucional",
+    "habilitado": true,
+    "protected": false,
+    "isModule": true,
+    "expand": true,
+    "secciones": [
+      {
+        "id": 5,
+        "posicion": 0,
+        "titulo": "Sueldos",
+        "descripcion": "Reporte gasto remuneraciones personal municipal.",
+        "iconname": "description",
+        "ruta": "/sueldos",
+        "habilitado": true,
+        "modulo": "mod_institucional",
+        "protected": false
+      },
+      {
+        "id": 6,
+        "posicion": 1,
+        "titulo": "Autoridades",
+        "descripcion": "Listado de autoridades municipales.",
+        "iconname": "groups",
+        "ruta": "/autoridades",
+        "habilitado": true,
+        "modulo": "mod_institucional",
+        "protected": false
+      },
+      {
+        "id": 7,
+        "posicion": 2,
+        "titulo": "Expedientes",
+        "descripcion": "Seguimiento de expedientes municipales.",
+        "iconname": "folder_open",
+        "ruta": "/expediente-movimientos",
+        "habilitado": true,
+        "modulo": "mod_institucional",
+        "protected": false
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "ref": "mod_compras",
+    "posicion": 3,
+    "titulo": "Compras",
+    "ruta": "/compras",
+    "habilitado": true,
+    "isModule": true,
+    "protected": false,
+    "expand": true,
+    "secciones": [
+      {
+        "id": 8,
+        "posicion": 0,
+        "titulo": "Licitaciones",
+        "descripcion": "Acceda a la información de las licitaciones municipales.",
+        "iconname": "discount",
+        "ruta": "/licitaciones",
+        "habilitado": true,
+        "modulo": "mod_compras",
+        "protected": false
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "ref": "link_digesto",
+    "posicion": 4,
+    "titulo": "Digesto",
+    "ruta": "http://digesto.smandes.gov.ar/index_digesto.htm",
+    "habilitado": true,
+    "protected": false,
+    "isModule": false,
+    "iconname": "menu_book"
+  },
+  {
+    "id": 6,
+    "ref": "link_boletin",
+    "posicion": 5,
+    "titulo": "Boletín",
+    "ruta": "http://boletinoficial.sanmartindelosandes.gov.ar",
+    "habilitado": true,
+    "protected": false,
+    "isModule": false,
+    "iconname": "gavel"
+  }
+]

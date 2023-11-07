@@ -1,0 +1,44 @@
+{
+  "id": 1,
+  "label": "Categoría 1",
+  "description": "Descripción de la Categoría 1",
+  "products": [
+    {
+      "id": 101,
+      "label": "Producto 1",
+      "description": "Descripción del Producto 1",
+      "price": 19.99,
+      "url": "/categoria1/producto1"
+    },
+    {
+      "id": 102,
+      "label": "Producto 2",
+      "description": "Descripción del Producto 2",
+      "price": 29.99,
+      "url": "/categoria1/producto2"
+    }
+  ],
+  "children": [
+    {
+      "id": 2,
+      "label": "Categoría 2",
+      "description": "Descripción de la Categoría 2",
+      "products": [
+        {
+          "id": 201,
+          "label": "Producto 3",
+          "description": "Descripción del Producto 3",
+          "price": 24.99,
+          "url": "/categoria2/producto3"
+        },
+        {
+          "id": 202,
+          "label": "Producto 4",
+          "description": "Descripción del Producto 4",
+          "price": 39.99,
+          "url": "/categoria2/producto4"
+        }
+      ]
+    }
+  ]
+}
