@@ -1,8 +1,7 @@
-import { CustomMenu } from "./components";
-import data from "./menu.json";
+import { ShellRouter } from "./router";
 
 function App() {
-  return <CustomMenu data={data} />;
+  return <ShellRouter />;
 }
 
 export default App;

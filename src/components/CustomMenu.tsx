@@ -7,9 +7,36 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useEffect, useState } from "react";
 import { CustomIcon } from "./CustomIcon";
-import { Menu } from "../interfaces";
+import { useLoaderData } from "react-router-dom";
+import { Typography } from "@mui/material";
 
-export const CustomMenu = ({ data }: { data: Menu[] }) => {
+export interface Menu {
+  id: number;
+  ref: number;
+  posicion: number;
+  titulo: string;
+  ruta: string;
+  habilitado: boolean;
+  protected: boolean;
+  isModule: boolean;
+  expand?: boolean;
+  secciones?: Section[] | null;
+  iconname?: string;
+}
+
+export interface Section {
+  id: number;
+  posicion: number;
+  titulo: string;
+  iconname: string;
+  ruta: string;
+  habilitado: boolean;
+  protected: boolean;
+  descripcion: string | null;
+}
+
+export const CustomMenu = () => {
+  const data = useLoaderData() as Menu[];
   const [modules, setModules] = useState<Menu[]>([]);
   const [externals, setExternals] = useState<Menu[]>([]);
 
@@ -38,6 +65,8 @@ export const CustomMenu = ({ data }: { data: Menu[] }) => {
     ]);
   };
 
+  if (!modules) return <Typography>Servicio en mantenimient!</Typography>;
+
   return (
     <List
       sx={{
@@ -45,15 +74,15 @@ export const CustomMenu = ({ data }: { data: Menu[] }) => {
         maxWidth: 360,
         bgcolor: "background.paper",
         px: 2,
-        mt: -1,
+        mt: 10,
       }}
       component="nav"
       aria-labelledby="nested-list-subheader"
     >
-      {modules.map((module) => (
+      {modules.map((module, i) => (
         <div key={module.titulo} hidden={module.protected}>
           <ListItemButton
-            key={module.titulo}
+            key={module.titulo + i}
             onClick={() => handleClick(module.id)}
             disabled={!module.habilitado}
           >
@@ -62,9 +91,9 @@ export const CustomMenu = ({ data }: { data: Menu[] }) => {
           </ListItemButton>
           <Collapse in={module.expand} timeout="auto" unmountOnExit>
             <>
-              {module.secciones?.map((seccion) => (
+              {module.secciones?.map((seccion, i) => (
                 <List
-                  key={seccion.descripcion}
+                  key={seccion.descripcion! + i}
                   component="div"
                   disablePadding
                   hidden={seccion.protected}
