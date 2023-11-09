@@ -1,14 +1,14 @@
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import { Typography } from "@mui/material";
 import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { CustomIcon } from "./CustomIcon";
-import { useLoaderData } from "react-router-dom";
-import { Typography } from "@mui/material";
 
 export interface Menu {
   id: number;
@@ -36,6 +36,7 @@ export interface Section {
 }
 
 export const CustomMenu = () => {
+  const navigate = useNavigate();
   const data = useLoaderData() as Menu[];
   const [modules, setModules] = useState<Menu[]>([]);
   const [externals, setExternals] = useState<Menu[]>([]);
@@ -87,7 +88,7 @@ export const CustomMenu = () => {
             disabled={!module.habilitado}
           >
             <ListItemText primary={module.titulo} sx={{ mr: 4 }} />
-            {module.expand ? <ExpandMore /> : <ExpandLess />}
+            {module.expand ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={module.expand} timeout="auto" unmountOnExit>
             <>
@@ -101,14 +102,20 @@ export const CustomMenu = () => {
                   <ListItemButton
                     disabled={!module.habilitado || !seccion.habilitado}
                     sx={{ pl: 5 }}
-                    onClick={() =>
-                      console.log(`Ruta: ${module.ruta}${seccion.ruta}`)
-                    }
+                    onClick={() => navigate(`${module.ruta}${seccion.ruta}`)}
                   >
+                    {/* <NavLink
+                      to={`${module.ruta}${seccion.ruta}`}
+                      style={{ display: "flex", color: "black" }}
+                    > */}
                     <ListItemIcon>
                       <CustomIcon iconName={seccion.iconname} />
                     </ListItemIcon>
-                    <ListItemText primary={seccion.titulo} />
+                    <ListItemText
+                      primary={seccion.titulo}
+                      // sx={{ paddingTop: 1 }}
+                    />
+                    {/* </NavLink> */}
                   </ListItemButton>
                 </List>
               ))}

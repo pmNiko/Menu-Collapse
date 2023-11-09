@@ -1,7 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import { PublicLayout } from "../layouts";
 import { loaderMenu } from "../loaders";
-import { Home } from "../pages";
+import {
+  AdhesionOnline,
+  Autoridades,
+  Comprobantes,
+  Expedientes,
+  Haberes,
+  Home,
+  Ingresar,
+  Licitaciones,
+  PagoOnline,
+  Sueldos,
+} from "../pages";
 
 export const router = createBrowserRouter([
   {
@@ -10,8 +21,69 @@ export const router = createBrowserRouter([
     loader: loaderMenu,
     children: [
       {
-        path: "/inicio",
+        path: "inicio",
         element: <Home />,
+      },
+      {
+        path: "rentas/",
+        children: [
+          {
+            path: "pagar",
+            element: <PagoOnline />,
+          },
+          {
+            path: "adhesion",
+            element: <AdhesionOnline />,
+          },
+          {
+            path: "busqueda-comprobantes-de-pago",
+            element: <Comprobantes />,
+          },
+        ],
+      },
+      {
+        path: "rrhh/",
+        children: [
+          {
+            path: "solicitudrecibohaberes",
+            element: <Haberes />,
+          },
+        ],
+      },
+      {
+        path: "ddjj/",
+        children: [
+          {
+            path: "ingresar",
+            element: <Ingresar />,
+          },
+        ],
+      },
+      {
+        path: "institucional/",
+        children: [
+          {
+            path: "sueldos",
+            element: <Sueldos />,
+          },
+          {
+            path: "autoridades",
+            element: <Autoridades />,
+          },
+          {
+            path: "expediente-movimientos",
+            element: <Expedientes />,
+          },
+        ],
+      },
+      {
+        path: "compras/",
+        children: [
+          {
+            path: "licitaciones",
+            element: <Licitaciones />,
+          },
+        ],
       },
     ],
   },
