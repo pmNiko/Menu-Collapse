@@ -1,5 +1,5 @@
 import { Box, Card, Typography } from "@mui/material";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { Menu, Section } from "../../components/Menu/CustomMenu";
 import { MunismaCard } from "../../components";
 import { CustomIcon } from "../../components/CustomIcon";
@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import "./home.css";
 
 export const HomePage = () => {
+  const navigate = useNavigate();
   const data = useLoaderData() as Menu[];
   const [sections, setSections] = useState<Section[]>([]);
   const [externals, setExternals] = useState<Menu[]>([]);
@@ -21,11 +22,22 @@ export const HomePage = () => {
         };
       });
 
-    setSections(
-      sortedData
-        .filter((item) => item.secciones)
-        .flatMap((item) => item.secciones)
-    );
+    const modules = sortedData.filter((item) => item.secciones);
+    const modulesWithSections = modules.map((module) => {
+      const secciones = module.secciones.map((seccion) => {
+        return {
+          ...seccion,
+          ruta: module.ruta + seccion.ruta,
+        };
+      });
+
+      return {
+        ...module,
+        secciones,
+      };
+    });
+
+    setSections(modulesWithSections.flatMap((item) => item.secciones));
     setExternals(sortedData.filter((item) => !item.isModule));
   }, []);
 
@@ -46,6 +58,7 @@ export const HomePage = () => {
               msUserSelect: "none",
               userSelect: "none",
             }}
+            onClick={() => navigate(item.ruta)}
           >
             <Box py={2} px={1}>
               <CustomIcon iconName={item.iconname} />

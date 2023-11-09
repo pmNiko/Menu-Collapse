@@ -66,20 +66,22 @@ export const CustomMenu = () => {
     ]);
   };
 
-  if (!modules) return <Typography>Servicio en mantenimient!</Typography>;
-
   return (
     <List
-    // sx={{
-    //   width: "100%",
-    //   maxWidth: 360,
-    //   bgcolor: "background.paper",
-    //   px: 2,
-    //   mt: 10,
-    // }}
-    // component="nav"
-    // aria-labelledby="nested-list-subheader"
+      sx={{
+        width: "100%",
+        maxWidth: 360,
+        bgcolor: "background.paper",
+      }}
+      component="nav"
+      aria-labelledby="nested-list-subheader"
     >
+      <ListItemButton key="home" onClick={() => navigate("/inicio")}>
+        <ListItemIcon>
+          <CustomIcon iconName="home" />
+        </ListItemIcon>
+        <ListItemText primary="Inicio" />
+      </ListItemButton>
       {modules.map((module, i) => (
         <div key={module.titulo} hidden={module.protected}>
           <ListItemButton
