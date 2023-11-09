@@ -1,20 +1,24 @@
+import { Box, IconButton } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Box, IconButton } from "@mui/material";
+import { Menu } from "./Menu";
 
 export const NavBar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" style={{ backgroundColor: "#2ea3f2" }}>
         <Toolbar>
+          <Menu />
           <IconButton
             size="large"
             edge="start"
             color="inherit"
             aria-label="menu"
             sx={{ ml: 1 }}
-            // onClick={() => (window.location.href = Environments.Domain)}
+            onClick={() =>
+              (window.location.href = "http://localhost:5173/inicio")
+            }
           >
             <img
               src="https://app.sma.gob.ar/inicio/static/media/sma.a0813f434e165adba2c0.png"
@@ -22,6 +26,7 @@ export const NavBar = () => {
               width={"130px"}
             />
           </IconButton>
+
           <Typography
             variant="h6"
             component="div"

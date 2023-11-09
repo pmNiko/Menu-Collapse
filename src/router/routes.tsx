@@ -7,7 +7,7 @@ import {
   Comprobantes,
   Expedientes,
   Haberes,
-  Home,
+  HomePage,
   Ingresar,
   Licitaciones,
   PagoOnline,
@@ -22,7 +22,8 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "inicio",
-        element: <Home />,
+        loader: loaderMenu,
+        element: <HomePage />,
       },
       {
         path: "rentas/",

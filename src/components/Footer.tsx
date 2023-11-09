@@ -1,10 +1,20 @@
-import { FormControlLabel, Grid, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  FormControlLabel,
+  Grid,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import meta from "../../package.json";
 
 /** Component Footer Page */
 export const Footer = () => (
-  <Grid container sx={{ background: "#1f1f1f", minWidth: "350px" }} mt={2}>
+  <Grid
+    container
+    sx={{ background: "#1f1f1f", width: "99vw", minWidth: 350 }}
+    mt={2}
+  >
     <Grid item xs={12} textAlign="center" fontSize={15} color="white" mt={3}>
       <Typography>Municipalidad de San Martín de los Andes</Typography>
     </Grid>

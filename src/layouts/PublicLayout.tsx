@@ -1,16 +1,16 @@
 import { Outlet } from "react-router-dom";
-import { CustomMenu, Footer, NavBar } from "../components";
+import { Footer, NavBar } from "../components";
+import { HomePage } from "../pages";
 
 export const PublicLayout = () => {
   return (
     <div>
       <NavBar />
 
-      <CustomMenu />
-
-      <main>
+      <HomePage />
+      {/* <main>
         <Outlet />
-      </main>
+      </main> */}
       <Footer />
     </div>
   );

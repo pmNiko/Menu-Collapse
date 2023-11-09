@@ -8,7 +8,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { CustomIcon } from "./CustomIcon";
+import { CustomIcon } from "../CustomIcon";
 
 export interface Menu {
   id: number;
@@ -20,7 +20,7 @@ export interface Menu {
   protected: boolean;
   isModule: boolean;
   expand?: boolean;
-  secciones?: Section[] | null;
+  secciones: Section[];
   iconname?: string;
 }
 
@@ -70,15 +70,15 @@ export const CustomMenu = () => {
 
   return (
     <List
-      sx={{
-        width: "100%",
-        maxWidth: 360,
-        bgcolor: "background.paper",
-        px: 2,
-        mt: 10,
-      }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
+    // sx={{
+    //   width: "100%",
+    //   maxWidth: 360,
+    //   bgcolor: "background.paper",
+    //   px: 2,
+    //   mt: 10,
+    // }}
+    // component="nav"
+    // aria-labelledby="nested-list-subheader"
     >
       {modules.map((module, i) => (
         <div key={module.titulo} hidden={module.protected}>
@@ -104,18 +104,10 @@ export const CustomMenu = () => {
                     sx={{ pl: 5 }}
                     onClick={() => navigate(`${module.ruta}${seccion.ruta}`)}
                   >
-                    {/* <NavLink
-                      to={`${module.ruta}${seccion.ruta}`}
-                      style={{ display: "flex", color: "black" }}
-                    > */}
                     <ListItemIcon>
                       <CustomIcon iconName={seccion.iconname} />
                     </ListItemIcon>
-                    <ListItemText
-                      primary={seccion.titulo}
-                      // sx={{ paddingTop: 1 }}
-                    />
-                    {/* </NavLink> */}
+                    <ListItemText primary={seccion.titulo} />
                   </ListItemButton>
                 </List>
               ))}
