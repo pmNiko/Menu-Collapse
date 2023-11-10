@@ -6,24 +6,18 @@ import { CustomIcon } from "../../components/CustomIcon";
 import { useEffect, useState } from "react";
 import "./home.css";
 
+interface LoaderData {
+  modulesJSON: Menu[];
+  externals: Menu[];
+}
+
 export const HomePage = () => {
   const navigate = useNavigate();
-  const data = useLoaderData() as Menu[];
+  const { modulesJSON, externals } = useLoaderData() as LoaderData;
   const [sections, setSections] = useState<Section[]>([]);
-  const [externals, setExternals] = useState<Menu[]>([]);
 
   useEffect(() => {
-    const sortedData = data
-      .sort((a, b) => a.posicion - b.posicion)
-      .map((item) => {
-        return {
-          ...item,
-          secciones: item.secciones?.sort((a, b) => a.posicion - b.posicion),
-        };
-      });
-
-    const modules = sortedData.filter((item) => item.secciones);
-    const modulesWithSections = modules.map((module) => {
+    const modulesWithSections = modulesJSON.map((module) => {
       const secciones = module.secciones.map((seccion) => {
         return {
           ...seccion,
@@ -38,7 +32,6 @@ export const HomePage = () => {
     });
 
     setSections(modulesWithSections.flatMap((item) => item.secciones));
-    setExternals(sortedData.filter((item) => !item.isModule));
   }, []);
 
   return (

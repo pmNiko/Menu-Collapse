@@ -1,5 +1,12 @@
 .MuiBox-root.headerMenu {
-    background-color: #2ea3f2;
-    color: white;
+  background-color: #2ea3f2;
+  color: white;
 }
 
+.custom-nav-link {
+  color: black;
+}
+
+.custom-nav-link.active {
+  color: #2ea3f2;
+}

@@ -1,13 +1,12 @@
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import { Typography } from "@mui/material";
 import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { useEffect, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import { CustomIcon } from "../CustomIcon";
 
 export interface Menu {
@@ -35,24 +34,17 @@ export interface Section {
   descripcion: string | null;
 }
 
+interface LoaderData {
+  modulesJSON: Menu[];
+  externals: Menu[];
+}
+
 export const CustomMenu = () => {
-  const navigate = useNavigate();
-  const data = useLoaderData() as Menu[];
+  const { modulesJSON, externals } = useLoaderData() as LoaderData;
   const [modules, setModules] = useState<Menu[]>([]);
-  const [externals, setExternals] = useState<Menu[]>([]);
 
   useEffect(() => {
-    const sortedData = data
-      .sort((a, b) => a.posicion - b.posicion)
-      .map((item) => {
-        return {
-          ...item,
-          secciones: item.secciones?.sort((a, b) => a.posicion - b.posicion),
-        };
-      });
-
-    setModules(sortedData.filter((item) => item.isModule));
-    setExternals(sortedData.filter((item) => !item.isModule));
+    setModules(modulesJSON);
   }, []);
 
   const handleClick = (id: number) => {
@@ -76,12 +68,14 @@ export const CustomMenu = () => {
       component="nav"
       aria-labelledby="nested-list-subheader"
     >
-      <ListItemButton key="home" onClick={() => navigate("/inicio")}>
-        <ListItemIcon>
-          <CustomIcon iconName="home" />
-        </ListItemIcon>
-        <ListItemText primary="Inicio" />
-      </ListItemButton>
+      <NavLink to={"/inicio"} className="custom-nav-link">
+        <ListItemButton key="home">
+          <ListItemIcon>
+            <CustomIcon iconName="home" />
+          </ListItemIcon>
+          <ListItemText primary="Inicio" />
+        </ListItemButton>
+      </NavLink>
       {modules.map((module, i) => (
         <div key={module.titulo} hidden={module.protected}>
           <ListItemButton
@@ -101,16 +95,21 @@ export const CustomMenu = () => {
                   disablePadding
                   hidden={seccion.protected}
                 >
-                  <ListItemButton
-                    disabled={!module.habilitado || !seccion.habilitado}
-                    sx={{ pl: 5 }}
-                    onClick={() => navigate(`${module.ruta}${seccion.ruta}`)}
+                  <NavLink
+                    to={`${module.ruta}${seccion.ruta}`}
+                    className="custom-nav-link"
                   >
-                    <ListItemIcon>
-                      <CustomIcon iconName={seccion.iconname} />
-                    </ListItemIcon>
-                    <ListItemText primary={seccion.titulo} />
-                  </ListItemButton>
+                    <ListItemButton
+                      disabled={!module.habilitado || !seccion.habilitado}
+                      sx={{ pl: 5 }}
+                      // onClick={() => navigate(`${module.ruta}${seccion.ruta}`)}
+                    >
+                      <ListItemIcon>
+                        <CustomIcon iconName={seccion.iconname} />
+                      </ListItemIcon>
+                      <ListItemText primary={seccion.titulo} />
+                    </ListItemButton>
+                  </NavLink>
                 </List>
               ))}
             </>
