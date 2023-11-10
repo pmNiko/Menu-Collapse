@@ -42,7 +42,7 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <MunismaCard xs={11} sm={8} md={7} lg={5} minHeight="50vh" mt={5} mb={10}>
+    <MunismaCard xs={11} sm={8} md={7} lg={5} minHeight="50vh" mt={2} mb={5}>
       <div className="container">
         {sections.map((item) => (
           <Card
