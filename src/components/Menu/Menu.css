@@ -8,5 +8,9 @@
 }
 
 .custom-nav-link.active {
-  color: #2ea3f2;
+  color: rgb(44, 163, 242);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

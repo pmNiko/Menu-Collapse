@@ -85,7 +85,7 @@ export const CustomMenu = () => {
     >
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <NavLink to={"/inicio"} className="custom-nav-link">
-          <ListItemButton key="home" style={{ marginLeft: 5 }}>
+          <ListItemButton key="home" style={{ marginLeft: 5, minWidth: 250 }}>
             <ListItemIcon>
               <CustomIcon iconName="home" iconFontSize={35} />
             </ListItemIcon>
@@ -93,12 +93,43 @@ export const CustomMenu = () => {
           </ListItemButton>
         </NavLink>
         <Box
-          p={3}
-          mr={-1}
-          sx={{ cursor: "pointer" }}
+          sx={{
+            cursor: "pointer",
+            maxWidth: 50,
+          }}
           onClick={toggleExpandAllSection}
         >
-          {isAllExpanded ? <ExpandLess /> : <ExpandMore />}
+          {isAllExpanded ? (
+            <ExpandLess
+              sx={{
+                marginTop: 2,
+                marginRight: 2,
+                padding: 1,
+                borderRadius: "10px",
+                ":hover": {
+                  background: "rgba(44, 163, 242, 0.8)",
+                  color: "white",
+                  boxShadow: "3px 6px 3px  rgba(0, 0, 0, 0.6)",
+                  fontSize: "1.2em",
+                },
+              }}
+            />
+          ) : (
+            <ExpandMore
+              sx={{
+                marginTop: 2,
+                marginRight: 2,
+                padding: 1,
+                borderRadius: "10px",
+                ":hover": {
+                  background: "rgba(44, 163, 242, 0.8)",
+                  color: "white",
+                  boxShadow: "3px 6px 3px  rgba(0, 0, 0, 0.6)",
+                  fontSize: "1.2em",
+                },
+              }}
+            />
+          )}
         </Box>
       </Box>
 
