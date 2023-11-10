@@ -1,15 +1,10 @@
 import { Box, Card, Typography } from "@mui/material";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { Menu, Section } from "../../components/Menu/CustomMenu";
 import { MunismaCard } from "../../components";
 import { CustomIcon } from "../../components/CustomIcon";
 import { useEffect, useState } from "react";
 import "./home.css";
-
-interface LoaderData {
-  modulesJSON: Menu[];
-  externals: Menu[];
-}
+import { LoaderData, Section } from "../../interfaces/MenuItems";
 
 export const HomePage = () => {
   const navigate = useNavigate();
