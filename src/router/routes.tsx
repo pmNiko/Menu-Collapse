@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
+import { SectionSupport } from "../components";
 import { PublicLayout, SupportLayout } from "../layouts";
-import { loaderMenu, loaderMenuError } from "../loaders";
+import { loaderMenu } from "../loaders";
 import {
   AdhesionOnline,
   Autoridades,
@@ -13,7 +14,6 @@ import {
   PagoOnline,
   Sueldos,
 } from "../pages";
-import { SectionSupport } from "../components";
 
 export const router = createBrowserRouter([
   {

@@ -1,3 +1,15 @@
+import { Box, Typography } from "@mui/material";
+import { MunismaCard } from "../../components";
+
 export const Expedientes = () => {
-  return <div>Expedientes</div>;
+  return (
+    <MunismaCard title="Seguimiento de expedientes" showImage>
+      <Box mx="auto">
+        <Typography>Tracking de expedientes.</Typography>
+      </Box>
+
+      <Box></Box>
+      <Box></Box>
+    </MunismaCard>
+  );
 };
