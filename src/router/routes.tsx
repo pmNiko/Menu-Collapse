@@ -1,19 +1,21 @@
+import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { SectionSupport } from "../components";
 import { PublicLayout, SupportLayout } from "../layouts";
 import { loaderMenu } from "../loaders";
-import {
-  AdhesionOnline,
-  Autoridades,
-  Comprobantes,
-  Expedientes,
-  Haberes,
-  HomePage,
-  Ingresar,
-  Licitaciones,
-  PagoOnline,
-  Sueldos,
-} from "../pages";
+
+// Importación de páginas
+import { HomePage } from "../pages";
+import { CircularProgress } from "@mui/material";
+const PagoOnline = lazy(() => import("../pages/rentas/PagoOnline"));
+const Comprobantes = lazy(() => import("../pages/rentas/Comprobantes"));
+const AdhesionOnline = lazy(() => import("../pages/rentas/AdhesionOnline"));
+const Haberes = lazy(() => import("../pages/rrhh/Haberes"));
+const Licitaciones = lazy(() => import("../pages/compras/Licitaciones"));
+const Ingresar = lazy(() => import("../pages/ddjj/Ingresar"));
+const Autoridades = lazy(() => import("../pages/institucional/Autoridades"));
+const Sueldos = lazy(() => import("../pages/institucional/Sueldos"));
+const Expedientes = lazy(() => import("../pages/institucional/Expedientes"));
 
 export const router = createBrowserRouter([
   {
@@ -36,15 +38,27 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: "pagar",
-                element: <PagoOnline />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <PagoOnline />
+                  </Suspense>
+                ),
               },
               {
                 path: "adhesion",
-                element: <AdhesionOnline />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <AdhesionOnline />
+                  </Suspense>
+                ),
               },
               {
                 path: "busqueda-comprobantes-de-pago",
-                element: <Comprobantes />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <Comprobantes />
+                  </Suspense>
+                ),
               },
             ],
           },
@@ -53,7 +67,11 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: "solicitudrecibohaberes",
-                element: <Haberes />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <Haberes />
+                  </Suspense>
+                ),
               },
             ],
           },
@@ -62,7 +80,11 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: "ingresar",
-                element: <Ingresar />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <Ingresar />
+                  </Suspense>
+                ),
               },
             ],
           },
@@ -71,15 +93,27 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: "sueldos",
-                element: <Sueldos />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <Sueldos />
+                  </Suspense>
+                ),
               },
               {
                 path: "autoridades",
-                element: <Autoridades />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <Autoridades />
+                  </Suspense>
+                ),
               },
               {
                 path: "expediente-movimientos",
-                element: <Expedientes />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <Expedientes />
+                  </Suspense>
+                ),
               },
             ],
           },
@@ -88,7 +122,11 @@ export const router = createBrowserRouter([
             children: [
               {
                 path: "licitaciones",
-                element: <Licitaciones />,
+                element: (
+                  <Suspense fallback={<CircularProgress />}>
+                    <Licitaciones />
+                  </Suspense>
+                ),
               },
             ],
           },

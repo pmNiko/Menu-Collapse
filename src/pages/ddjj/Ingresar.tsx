@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { MunismaCard } from "../../components";
 
-export const Ingresar = () => {
+export default () => {
   return (
     <MunismaCard title="Declaraciones Juradas de comercio" showImage>
       <Box mx="auto">

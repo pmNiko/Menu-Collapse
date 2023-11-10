@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { MunismaCard } from "../../components";
 
-export const Comprobantes = () => {
+export default () => {
   return (
     <MunismaCard title="Comprobantes de pago" showImage>
       <Box mx="auto">

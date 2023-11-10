@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { MunismaCard } from "../../components";
 
-export const PagoOnline = () => {
+const PagoOnline = () => {
   return (
     <MunismaCard title="Pago de tributos online" showImage>
       <Box mx="auto">
@@ -13,3 +13,5 @@ export const PagoOnline = () => {
     </MunismaCard>
   );
 };
+
+export default PagoOnline;

@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { MunismaCard } from "../../components";
 
-export const Autoridades = () => {
+export default () => {
   return (
     <MunismaCard title="Autoridades Municipales" showImage>
       <Box mx="auto">
