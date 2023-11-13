@@ -3,6 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Menu } from "./Menu";
+import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {
   return (
@@ -10,22 +11,24 @@ export const NavBar = () => {
       <AppBar position="fixed" style={{ backgroundColor: "#2ea3f2" }}>
         <Toolbar>
           <Menu />
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ ml: 1 }}
-            onClick={() =>
-              (window.location.href = "http://localhost:5173/inicio")
-            }
-          >
-            <img
-              src="https://app.sma.gob.ar/inicio/static/media/sma.a0813f434e165adba2c0.png"
-              alt="logo"
-              width={"130px"}
-            />
-          </IconButton>
+          <NavLink to={"/"}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ ml: 1 }}
+              // onClick={() =>
+              //   (window.location.href = "http://localhost:5173/inicio")
+              // }
+            >
+              <img
+                src="https://app.sma.gob.ar/inicio/static/media/sma.a0813f434e165adba2c0.png"
+                alt="logo"
+                width={"130px"}
+              />
+            </IconButton>
+          </NavLink>
 
           <Typography
             variant="h6"

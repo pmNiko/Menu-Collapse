@@ -1,12 +1,11 @@
 import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { SectionSupport } from "../components";
-import { PublicLayout, SupportLayout } from "../layouts";
-import { loaderMenu } from "../loaders";
-
-// Importación de páginas
-import { HomePage } from "../pages";
 import { CircularProgress } from "@mui/material";
+import { PublicLayout, SupportLayout } from "../layouts";
+import { SectionSupport } from "../components";
+import { loaderMenu } from "../loaders/loaderMenu";
+import { HomePage } from "../pages/Home";
+
 const PagoOnline = lazy(() => import("../pages/rentas/PagoOnline"));
 const Comprobantes = lazy(() => import("../pages/rentas/Comprobantes"));
 const AdhesionOnline = lazy(() => import("../pages/rentas/AdhesionOnline"));
@@ -22,16 +21,15 @@ export const router = createBrowserRouter([
     path: "/",
     element: <PublicLayout />,
     loader: loaderMenu,
-    errorElement: <SupportLayout />,
     children: [
       {
         errorElement: <SectionSupport />,
         children: [
           {
             index: true,
-            path: "inicio",
-            loader: loaderMenu,
+            errorElement: <SupportLayout />,
             element: <HomePage />,
+            loader: loaderMenu,
           },
           {
             path: "rentas/",
